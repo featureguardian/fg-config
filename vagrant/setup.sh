@@ -35,12 +35,18 @@ $install git-flow
 npm install -g gulp
 
 # Heat up the workspace
-cd /projects
-git clone https://github.com/featureguardian/fg-service.git
-git clone https://github.com/featureguardian/fg-admin-ui.git
+if [ ! -d "/projects/fg-service" ]; then
+  cd /projects
+  git clone https://github.com/featureguardian/fg-service.git develop
+  cd /projects/fg-service
+  git branch develop
+  npm install
+fi
 
-cd /projects/fg-service
-npm install
-
-cd /projects/fg-admin-ui
-npm install
+if [ ! -d "/projects/fg-admin-ui" ]; then
+  cd /projects
+  git clone https://github.com/featureguardian/fg-admin-ui.git  
+  cd /projects/fg-admin-ui
+  git branch develop
+  npm install
+fi

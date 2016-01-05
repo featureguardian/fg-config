@@ -29,6 +29,9 @@ This will run an Ubuntu 14.04 LTS VM configured with 1GB RAM.  It installs the f
 3. Installs Git and Git Flow
 4. Installs global npm modules:
     * Gulp
+5. Clones Feature Guardion repositories into `/projects` and runs `npm install` for each
 
 Once it starts you can execute `vagrant ssh` to gain access to the machine.
+
+`vagrant up` will automatically provision the machine (run setup.sh) the first time,  but you may manually invoke the script at a later time by running `vagrant provision`  as it is written to be idempotent.
 
