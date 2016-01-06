@@ -37,18 +37,19 @@ $install g++
 npm install -g gulp
 
 # Heat up the workspace
+projectFolder="/vagrant/projects"
 if [ ! -d "/projects/fg-service" ]; then
-  cd /projects
+  cd $projectFolder
   git clone https://github.com/featureguardian/fg-service.git
-  cd /projects/fg-service
+  cd $projectFolder/fg-service
   git checkout develop
   npm install
 fi
 
 if [ ! -d "/projects/fg-admin-ui" ]; then
-  cd /projects
+  cd $projectFolder
   git clone https://github.com/featureguardian/fg-admin-ui.git  
-  cd /projects/fg-admin-ui
+  cd $projectFolder/fg-admin-ui
   git checkout develop
   npm install
 fi
