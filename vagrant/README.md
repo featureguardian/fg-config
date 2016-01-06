@@ -1,4 +1,11 @@
+## Why Vagrant?
+In two commands new developers can have a machine provisioned that runs the application in a consistent way.  It also allows a developers host machine (i.e OS X) to be configured in a way different from one or more applications being run on his machine.
+
+You can read more here: https://docs.vagrantup.com
+
 ## Vagrant Setup
+
+The Vagrant config is setup to map port 1337 from the guest (ubuntu 14.04 LTS) to the host (your machine) so that the application is accessible at http://localhost:1337 when it is running on the guest OS, which is headless.
 
 You must install two programs which will automatically provision a development environment suitable for running and developing all Feature Guardian modules.
 
@@ -6,6 +13,7 @@ You must install two programs which will automatically provision a development e
 
 1. [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. [Vagrant](https://www.vagrantup.com/downloads.html)
+3. Clone this (fg-config) repository into a project folder you will use for feature guardian
 
 #### Run Vagrant
 Note: The default config assumes you are running vagrant from inside a projects folder containing this repository, if that is not the case you must edit or comment out this line first in the file `Vagrantfile`:
@@ -38,4 +46,6 @@ This will run an Ubuntu 14.04 LTS VM configured with 1GB RAM.  It installs the f
 Once it starts you can execute `vagrant ssh` to gain access to the machine.
 
 `vagrant up` will automatically provision the machine (run setup.sh) the first time,  but you may manually invoke the script at a later time by running `vagrant provision`  as it is written to be idempotent.
+
+Run `vagrant` by itself to see a listing of all available commands.
 
