@@ -11,10 +11,12 @@ You must install two programs which will automatically provision a development e
 Note: The default config assumes you are running vagrant from inside a projects folder containing this repository, if that is not the case you must edit or comment out this line first in the file `Vagrantfile`:
 
 ```
-config.vm.synced_folder "../../", "/projects"
+config.vm.synced_folder "../../", "/vagrant/projects"
 ```
 
 This allows you to work on the host system and have all file changes automatically synced to the guest VM.
+
+**Note to Windows Users:** Your shell must support ssh (i.e. git bash) and be started in admin mode for symbolic links to work correctly.  This is required for you to execute npm on the guest OS.
 
 Then to provision and start, run:
 
@@ -29,7 +31,9 @@ This will run an Ubuntu 14.04 LTS VM configured with 1GB RAM.  It installs the f
 3. Installs Git and Git Flow
 4. Installs global npm modules:
     * Gulp
-5. Clones Feature Guardion repositories into `/projects` and runs `npm install` for each
+5. Git clones Feature Guardion repositories into `/projects` and runs `npm install` for each
+    * fg-service
+    * fg-admin-ui
 
 Once it starts you can execute `vagrant ssh` to gain access to the machine.
 
