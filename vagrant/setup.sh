@@ -31,15 +31,17 @@ fi
 $install git
 $install git-flow
 
+$install g++
+
 # Install NPM Packages
 npm install -g gulp
 
 # Heat up the workspace
 if [ ! -d "/projects/fg-service" ]; then
   cd /projects
-  git clone https://github.com/featureguardian/fg-service.git develop
+  git clone https://github.com/featureguardian/fg-service.git
   cd /projects/fg-service
-  git branch develop
+  git checkout develop
   npm install
 fi
 
@@ -47,6 +49,6 @@ if [ ! -d "/projects/fg-admin-ui" ]; then
   cd /projects
   git clone https://github.com/featureguardian/fg-admin-ui.git  
   cd /projects/fg-admin-ui
-  git branch develop
+  git checkout develop
   npm install
 fi
